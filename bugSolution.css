@@ -1,0 +1,20 @@
+The solution involves ensuring consistent unit usage within the `calc()` expression.  For example, if you're calculating a width based on a percentage and a pixel value, make sure both are expressed relative to the same parent element's dimension. Additionally, always test your code across different browsers to ensure compatibility.  Consider using a CSS preprocessor (Sass, Less) to help maintain clean and consistent code, which helps minimize the risk of `calc()` related issues. Here's an example of how to correctly use `calc()`:
+
+```css
+/* Incorrect - inconsistent units */
+.element {
+  width: calc(50% + 10px);
+}
+
+/* Correct - consistent units (all percentages) */
+.element {
+  width: calc(50% + 10vw); /* vw is viewport width */
+}
+
+/*Correct - using only pixels*/
+.element{
+  width: calc(100px + 10px);
+}
+```
+
+In more complex cases, using variables within a preprocessor can significantly improve the readability and maintainability of your `calc()` expressions. This makes it easier to identify and avoid potential errors.
